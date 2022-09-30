@@ -10,6 +10,7 @@ function App() {
 <Routes>
   <Route path="/" element={<Home/>}/>
   <Route path="/event" element={<Event/>}/>
+  <Route path="/event/lesson/:slug" element={<Event/>}/>
 </Routes>
   </BrowserRouter>
     </div>

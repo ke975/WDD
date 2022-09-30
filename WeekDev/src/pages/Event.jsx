@@ -5,8 +5,17 @@ import { Video } from '../componets/Video'
 import Logo from'../assets/Logo.svg'
 import {DiscordLogo} from 'phosphor-react'
 import {Lightning} from 'phosphor-react'
+import { useParams } from 'react-router-dom'
+
+
+
 import '../styles/event.css'
 export  function Event() {
+
+
+
+  const {slug} = useParams();
+
   return (
     <div id="event" >
         <header className="mx-auto">
@@ -16,7 +25,7 @@ export  function Event() {
       <div >
         <div className="row">
           <div className="col-md-8">
-            <Video/>
+           <Video  slug={slug}/> 
           </div>
           <div className="col-md-4">
             <Sidebar/>

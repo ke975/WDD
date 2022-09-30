@@ -1,6 +1,27 @@
 import React from 'react'
 
+import { gql, useQuery } from '@apollo/client'
+import {Link} from 'react-router-dom'
+
+
+const GET_lESSONS_QUERY = gql`
+query {
+  lessons(orderBy: availableAt_DESC, stage: PUBLISHED) {
+    id
+    lessonType
+    availableAt
+    title
+    slug
+  }
+}
+`
+
 export  function Sidebar() {
+ 
+  const {data} = useQuery(GET_lESSONS_QUERY)
+  console.log(data)
+
+
   return (
     <div>
         <div className="accordion  " id="accordionExample">
@@ -12,7 +33,12 @@ export  function Sidebar() {
     </h2>
     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
       <div className="accordion-body text-white">
-        <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        {data?.lessons.map(item=>{
+          return(
+            <Link key={item.id} to={`/event/lesson/${item.slug}`}>{item.title}</Link>
+          )
+          
+        })}
       </div>
     </div>
   </div>
