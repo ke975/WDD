@@ -1,12 +1,13 @@
 import React from 'react'
 
 import { gql, useQuery } from '@apollo/client'
-import {Link} from 'react-router-dom'
+import {Link } from 'react-router-dom'
+import { Lessons } from './Lessons'
 
 
 const GET_lESSONS_QUERY = gql`
 query {
-  lessons(orderBy: availableAt_DESC, stage: PUBLISHED) {
+  lessons( stage: PUBLISHED) {
     id
     lessonType
     availableAt
@@ -35,7 +36,12 @@ export  function Sidebar() {
       <div className="accordion-body text-white">
         {data?.lessons.map(item=>{
           return(
-            <Link key={item.id} to={`/event/lesson/${item.slug}`}>{item.title}</Link>
+            <Lessons
+            key={item.id}
+            title={item.title}
+            slug={item.slug}
+            description={item.description}
+            />
           )
           
         })}

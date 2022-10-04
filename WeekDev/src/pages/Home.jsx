@@ -41,7 +41,7 @@ export function Home() {
             </div>
             <div className="d-grid gap-2 col-md-6 mx-auto mb-3 mt-4">
 
-                <Link to="/event">
+                <Link to={'/event/lesson/aula-2'}>
               <button
                 type="submit"
                 class="btn btn-primary mx-auto col-md-12 "

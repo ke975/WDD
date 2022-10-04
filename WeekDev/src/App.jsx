@@ -1,17 +1,12 @@
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import {Home} from './pages/Home'
-import {Event} from './pages/Event'
+import {BrowserRouter} from 'react-router-dom'
+import {Router} from './routes'
 function App() {
  
 
   return (
     <div>
   <BrowserRouter>
-<Routes>
-  <Route path="/" element={<Home/>}/>
-  <Route path="/event" element={<Event/>}/>
-  <Route path="/event/lesson/:slug" element={<Event/>}/>
-</Routes>
+<Router/>
   </BrowserRouter>
     </div>
   )

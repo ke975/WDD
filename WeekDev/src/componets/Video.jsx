@@ -1,6 +1,6 @@
 import React from 'react'
 import '@vime/core/themes/default.css'
-import { DefaultUi, Player, Youtube } from '@vime/react'
+import { DefaultUi, Player, Youtube,DefaultControls } from '@vime/react'
 import {gql, useQuery} from"@apollo/client"
 
 
@@ -45,9 +45,10 @@ if(!data){
     <div>
   <Player>
       <Youtube
-videoId='RCvh0pmow_A'    
+videoId={data.lesson.videoId}    
 
 />
+<DefaultControls hideOnMouseLeave activeDuration={2000} />
       <DefaultUi/>
     </Player>
 

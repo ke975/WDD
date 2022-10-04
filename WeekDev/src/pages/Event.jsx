@@ -15,7 +15,6 @@ export  function Event() {
 
 
   const {slug} = useParams();
-
   return (
     <div id="event" >
         <header className="mx-auto">
@@ -25,7 +24,7 @@ export  function Event() {
       <div >
         <div className="row">
           <div className="col-md-8">
-           <Video  slug={slug}/> 
+           <Video  lessonSlug={slug}/> 
           </div>
           <div className="col-md-4">
             <Sidebar/>
@@ -60,7 +59,7 @@ Discord</strong></a></button>
 
 
 
-<button class="btn btn" style={{ backgroundColor:"#F75A68" }} type="button">
+<button className="btn btn-outline-warning" style={{ backgroundColor:"#F75A68" }} type="button">
   <Lightning size={40} 
 color="white"
 
