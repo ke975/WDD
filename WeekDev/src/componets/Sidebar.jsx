@@ -13,6 +13,7 @@ query {
     availableAt
     title
     slug
+    description
   }
 }
 `
@@ -25,9 +26,9 @@ export  function Sidebar() {
 
   return (
     <div>
-        <div className="accordion  " id="accordionExample">
+        <div className="accordion" id="accordionExample ">
   <div className="accordion-item bg-dark">
-    <h2 className="accordion-header text-white text-center" id="headingOne">
+    <h2 className="accordion-header text-white text-center mx-auto" id="headingOne">
       <button className="accordion-button bg-dark text-white  " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
       Clases de React Js 
       </button>

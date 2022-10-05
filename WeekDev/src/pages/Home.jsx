@@ -1,8 +1,48 @@
 import React from "react";
 import Logo from "../assets/Logo.svg";
-import {Link } from 'react-router-dom'
+import {gql, useMutation} from '@apollo/client'
+import {useNavigate} from 'react-router-dom'
+import {useState} from 'react'
 import '../styles/fondo.css'
+
+
+const CREATE_SUBSCRIBER_MUTATION=gql`
+mutation CreateSubscriber($name:String!, $email:String!) {
+  createSubscriber(data: {name: $name, email:$email}) {
+    id
+  }
+}
+
+`
+
+
+
 export function Home() {
+
+const navigate =useNavigate()
+
+
+const [name ,setName ] = useState('');
+const [email ,setEmail ] = useState('');
+
+const [  createSubscriber] = useMutation(CREATE_SUBSCRIBER_MUTATION)
+
+function handleSubscribe(e){
+e.preventDefault();
+
+createSubscriber({
+  variables:{
+    name, email
+  }
+})
+
+navigate('event/lesson/aula-2')
+
+
+console.log(name, email)
+
+}
+
   return (
     <div id="Home">
 
@@ -21,35 +61,37 @@ export function Home() {
           style={{ backgroundColor: "#0099CC" }}
         >
           <h4 className="text-center text-white mt-3">Regístrate Gratis</h4>
-          <form className="mt-5">
-            <div class="mb-3 mt-4 col-md-9 mx-auto">
+          <form onSubmit={handleSubscribe} className="mt-5">
+            <div className="mb-3 mt-4 col-md-9 mx-auto">
               <input
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 placeholder="Nombre Completo"
+                onChange={event => setName(event.target.value)}
               />
             </div>
-            <div class="mb-3 mt-4 col-md-9 mx-auto">
+            <div className="mb-3 mt-4 col-md-9 mx-auto">
               <input
                 type="Email"
-                class="form-control"
+                className="form-control"
                 id="exampleInputPassword1"
                 placeholder="Correo Electronico"
+                onChange={event => setEmail(event.target.value)}
               />
             </div>
             <div className="d-grid gap-2 col-md-6 mx-auto mb-3 mt-4">
 
-                <Link to={'/event/lesson/aula-2'}>
+               
               <button
                 type="submit"
-                class="btn btn-primary mx-auto col-md-12 "
+                className="btn btn-primary mx-auto col-md-12 "
                 style={{ backgroundColor: "#9933CC" }}
               >
                 Asegura tu participación
               </button>
-              </Link>
+      
             </div>
           </form>
         </div>
