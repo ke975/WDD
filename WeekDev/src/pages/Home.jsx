@@ -27,16 +27,21 @@ const [email ,setEmail ] = useState('');
 
 const [  createSubscriber] = useMutation(CREATE_SUBSCRIBER_MUTATION)
 
-function handleSubscribe(e){
+async function handleSubscribe(e){
 e.preventDefault();
+try {
+  await createSubscriber({
+    variables:{
+      name, email
+    }
+  })
+  navigate('event/lesson/aula-2')
+} catch (error) {
+  alert("Los datos estan vacios por favor llene los campos")
+}
 
-createSubscriber({
-  variables:{
-    name, email
-  }
-})
 
-navigate('event/lesson/aula-2')
+
 
 
 console.log(name, email)
@@ -70,6 +75,7 @@ console.log(name, email)
                 aria-describedby="emailHelp"
                 placeholder="Nombre Completo"
                 onChange={event => setName(event.target.value)}
+                required
               />
             </div>
             <div className="mb-3 mt-4 col-md-9 mx-auto">
@@ -79,6 +85,7 @@ console.log(name, email)
                 id="exampleInputPassword1"
                 placeholder="Correo Electronico"
                 onChange={event => setEmail(event.target.value)}
+              required
               />
             </div>
             <div className="d-grid gap-2 col-md-6 mx-auto mb-3 mt-4">

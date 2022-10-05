@@ -19,14 +19,14 @@ export  function Event() {
         <header className="mx-auto">
 <Header/>
         </header>
-    <main className="container-fluid">
-      <div >
+    <main >
+      <div className="container-fluid">
         <div className="row">
      
-          <div className="col-md-8 mt-5 col-lg-8 order-md-first">
+          <div className="col-md-8 col-lg-8 order-md-first">
            <Video  lessonSlug={slug}/> 
           </div>
-          <div className="col-md-4 col-lg-4 order-sm-first order-xs-first ">
+          <div className="col-md-4 col-lg-4 order-sm-first order-xs-first d-none d-sm-block d-none d-sm-block">
             <Sidebar/>
           </div>
         </div>
