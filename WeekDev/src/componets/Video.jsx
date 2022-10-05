@@ -47,8 +47,10 @@ if(!data){
   <Player>
       <Youtube
 videoId={data.lesson.videoId}    
+width={"100vw"}
 
 />
+
 <DefaultControls hideOnMouseLeave activeDuration={2000} />
       <DefaultUi/>
     </Player>

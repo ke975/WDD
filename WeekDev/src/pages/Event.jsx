@@ -20,13 +20,13 @@ export  function Event() {
 <Header/>
         </header>
     <main >
-      <div className="container-fluid">
+      <div className="container-fluid mt-3">
         <div className="row">
      
-          <div className="col-md-8 col-lg-8 order-md-first">
+          <div className="col-md-9 col-lg-8 order-md-first">
            <Video  lessonSlug={slug}/> 
           </div>
-          <div className="col-md-4 col-lg-4 order-sm-first order-xs-first d-none d-sm-block d-none d-sm-block">
+          <div className="col-md-3 col-lg-4 order-sm-first order-xs-first d-none d-sm-block">
             <Sidebar/>
           </div>
         </div>

@@ -10,16 +10,16 @@ const {slug} = useParams();
 
   return (
     <div>
-    <div className=" mt-3 pt-5  text-center ">
+    <div className="text-center  ">
         <div className="row">
-            <div className="col-md-8 mx-auto  ">
+            <div className="col-md-12 mb-2 mt-2 ">
 
-            <div className="card mx-auto col-sm-6 " style={{width: "16rem"}}>
-  <div className="card-body bg-dark ">
+            <div className="card mx-auto col-sm-6 bg-transparent  border-success" style={{width: "18rem"}}>
+  <div className="card-body ">
   <Link style={{textDecoration:"none" , color:"white", }} to={`/event/lesson/${props.slug}`} className="mx-auto "> 
           
     <h5 className="card-title">{props.title}</h5>
-    <p className="card-text">  {props.description}.</p>
+    <p className="card-text text-justify">  {props.description}.</p>
     </Link>
           
   </div>

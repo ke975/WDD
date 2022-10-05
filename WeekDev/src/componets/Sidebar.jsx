@@ -26,15 +26,19 @@ export  function Sidebar() {
 
   return (
     <div>
-        <div className="accordion" id="accordionExample ">
-  <div className="accordion-item bg-dark">
-    <h2 className="accordion-header text-white text-center mx-auto" id="headingOne">
-      <button className="accordion-button bg-dark text-white  " type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-      Clases de React Js 
+
+      <div >
+      <div class="accordion" id="accordionExample">
+  <div class="accordion-item bg-dark">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+     Clases de React JS
       </button>
     </h2>
-    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-      <div className="accordion-body text-white">
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+       
+</div>
         {data?.lessons.map(item=>{
           return(
             <Lessons
@@ -47,10 +51,14 @@ export  function Sidebar() {
           
         })}
       </div>
+      </div>
     </div>
   </div>
 
-</div>
+
+
+
+
 
     </div>
   )
